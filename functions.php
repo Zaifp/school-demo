@@ -170,9 +170,26 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Register CPTs and Taxonomoies.
+ */
+require get_template_directory() . '/inc/cpt-taxonomy.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function schoolz_enqueue_scripts() {
+    if (is_page('news') || is_singular('post')) {
+        // Enqueue AOS CSS
+        wp_enqueue_style('aos-css', get_template_directory_uri() . '/css/aos.css');
+        
+        // Enqueue AOS JS
+        
+        wp_add_inline_script('aos-js', 'AOS.init();');
+    }
+}
+
+add_action('wp_enqueue_script', 'schoolz_enqueue_scripts');

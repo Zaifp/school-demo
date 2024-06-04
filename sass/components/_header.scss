@@ -1,0 +1,17 @@
+.site-header {
+    background-color: #000; // Dark background
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo a {
+    color: #c92129;
+    text-decoration: none;
+}
+
+.site-title {
+    font-size: 24px; // Larger font size for visibility
+}
