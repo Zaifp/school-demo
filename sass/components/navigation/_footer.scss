@@ -1,0 +1,45 @@
+.site-footer {
+    background-color: #222; // Dark background for footer
+    color: #fff; // White text for readability
+    padding: 20px; // Padding around the footer content
+    text-align: center; // Center-align the text
+
+    .footer-contact,
+    .footer-menus {
+        margin-bottom: 20px; // Space between footer sections
+    }
+
+    .footer-navigation {
+        display: flex;
+        justify-content: center; // Center the navigation
+        a {
+            color: #fff; // White links
+            padding: 0 10px; // Spacing between links
+            text-decoration: none; // No underline
+
+            &:hover {
+                text-decoration: underline; // Underline on hover
+            }
+        }
+    }
+
+    .site-info {
+        font-size: 0.8em; // Smaller font size for site info
+    }
+}
+
+#scroll-top {
+    background-color: #444; // Darker background for the button
+    border: none;
+    border-radius: 50%; // Rounded button
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+
+    svg {
+        fill: #fff; // White icon
+    }
+}
