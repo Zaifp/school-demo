@@ -1,11 +1,45 @@
-.no-sidebar {
-
-	.site {
-		display: grid;
-		grid-template-columns: auto;
-		grid-template-areas:
-			"header"
-			"main"
-			"footer";
+.no-sidebar-layout {
+	display: grid;
+	grid-template-columns: 1fr minmax(auto, 1200px) 1fr;
+	grid-template-areas:
+	  "header header header"
+	  ". content ."
+	  "footer footer footer";
+	
+	.site-header {
+	  grid-area: header;
 	}
-}
+  
+	.site-main {
+	  grid-area: content;
+	  max-width: 100%;
+	  margin: 0 auto;
+	}
+  
+	.site-footer {
+	  grid-area: footer;
+	}
+  
+	.content-wrapper {
+	  display: flex;
+	  flex-direction: column;
+	  gap: 20px;
+	}
+  
+	section {
+	  max-width: 100%;
+	  margin: 0 auto;
+	}
+  }
+  
+  /* Additional styling for responsiveness */
+  @media (max-width: 1200px) {
+	.no-sidebar-layout {
+	  grid-template-columns: 1fr;
+	  grid-template-areas:
+		"header"
+		"content"
+		"footer";
+	}
+  }
+  

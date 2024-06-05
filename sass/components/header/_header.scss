@@ -1,0 +1,39 @@
+.site-header {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    align-items: center;
+    background-color: #000; /* Adjust color to match the exact background color of your header */
+}
+
+.site-branding {
+    grid-column: 1 / 2;
+    text-align: right; /* Ensures the logo or site title aligns to the left */
+    color: white; /* Adjust text color as needed */
+    
+}
+
+.main-navigation {
+    grid-column: 3 / 3;
+    justify-self: center; /* Centers the navigation menu */
+    
+}
+
+.main-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Ensures the navigation items are in a row */
+    gap: 20px; /* Adjust the space between navigation items as needed */
+}
+
+.main-navigation a {
+    color: white; /* Adjust link color as needed */
+    text-decoration: none;
+}
+
+.site-header div:last-child {
+    grid-column: 3 / 4;
+    text-align: right; /* Ensures any content here is aligned to the right */
+}
+
+/* Additional styles for responsiveness or specific adjustments might be needed depending on your site's requirements */
