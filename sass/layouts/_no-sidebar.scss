@@ -5,7 +5,7 @@
 	  "header header header"
 	  ". content ."
 	  "footer footer footer";
-	
+  
 	.site-header {
 	  grid-area: header;
 	}
@@ -26,9 +26,24 @@
 	  gap: 20px;
 	}
   
-	section {
-	  max-width: 100%;
-	  margin: 0 auto;
+	table {
+	  width: 100%;
+	  border-collapse: collapse;
+	  margin-top: 20px;
+	  
+	  th, td {
+		padding: 15px;
+		border: 1px solid #dddddd;
+	  }
+  
+	  th {
+		background-color: #f4f4f4;
+		font-weight: bold;
+	  }
+  
+	  tr:nth-child(even) {
+		background-color: #f9f9f9;
+	  }
 	}
   }
   
