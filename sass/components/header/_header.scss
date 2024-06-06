@@ -1,21 +1,24 @@
+/* Base styles for desktop and larger screens */
 .site-header {
     display: grid;
     grid-template-columns: 1fr 0.5fr 1fr;
     align-items: center;
-    background-color: #000; /* Adjust color to match the exact background color of your header */
+    background-color: #000; 
+    width: 100%;
 }
 
+.masthead{
+    width: 100%;
+}
 .site-branding {
     grid-column: 1 / 2;
     text-align: right; /* Ensures the logo or site title aligns to the left */
     color: rgb(255, 255, 255); /* Adjust text color as needed */
-    
 }
 
 .main-navigation {
     grid-column: 3 / 3;
     justify-self: center; /* Centers the navigation menu */
-    
 }
 
 .main-navigation ul {
@@ -29,6 +32,11 @@
 .main-navigation a {
     color: white; /* Adjust link color as needed */
     text-decoration: none;
+    font-size: 1.2rem; /* Adjust font size as needed */
+}
+
+.main-navigation a:hover {
+    color: #ff0000; /* Set the color you want on hover */
 }
 
 .site-header div:last-child {
@@ -36,4 +44,58 @@
     text-align: right; /* Ensures any content here is aligned to the right */
 }
 
-/* Additional styles for responsiveness or specific adjustments might be needed depending on your site's requirements */
+/* Site title specific styles */
+.site-title a {
+    color: #ffffff; /* Set your desired color */
+    font-size: 2rem;
+    text-decoration: none; /* Remove underline */
+    text-transform: uppercase; /* Make the text all uppercase */
+}
+
+.site-title a:visited {
+    color: #ffffff; 
+}
+
+.site-title a:hover {
+    color: #ff0000; 
+}
+
+.sub-menu {
+    display: flex;
+    flex-direction: column; 
+    background-color: #000;
+    text-align: left;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 720px) {
+    .site-header {
+        grid-template-columns: 1fr; /* Make header a single column layout */
+        text-align: center; /* Center align header content */
+    }
+
+    .site-branding {
+        grid-column: 1 / 2; /* Ensure branding takes full width */
+        text-align: center; /* Center align branding */
+        margin-bottom: 10px; /* Add margin for spacing */
+    }
+
+    .main-navigation {
+        grid-column: 1 / 2; /* Ensure navigation takes full width */
+        justify-self: center; /* Center align navigation */
+    }
+
+    .main-navigation ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        gap: 10px; /* Adjust spacing between navigation items */
+    }
+
+    .main-navigation a {
+        font-size: 1rem; /* Adjust font size for mobile */
+    }
+
+    .site-header div:last-child {
+        grid-column: 1 / 2; /* Ensure content takes full width */
+        text-align: center; /* Center align content */
+    }
+}

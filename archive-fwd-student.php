@@ -7,6 +7,7 @@
  */
 
 get_header();
+add_filter( 'get_the_archive_title_prefix', '__return_false' );
 
 // Modify the excerpt length and read more text for this template
 function custom_student_excerpt_length( $length ) {
@@ -22,13 +23,13 @@ add_filter( 'excerpt_more', 'custom_student_excerpt_more' );
 
 ?>
 
-<div class="no-sidebar-layout">
-    <main id="primary" class="site-main content-wrapper">
-	<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
+<main id="primary" class="site-main">
+    <?php
+    the_archive_title( '<h1 class="page-title">', '</h1>' );
+    the_archive_description( '<div class="archive-description">', '</div>' );
+    ?>
 
+    <div class="students-grid">
         <?php
         $args = array(
             'post_type'      => 'fwd-student',
@@ -70,8 +71,8 @@ add_filter( 'excerpt_more', 'custom_student_excerpt_more' );
             echo '<p>' . __( 'No students found.', 'your-text-domain' ) . '</p>';
         endif;
         ?>
-    </main><!-- #primary -->
-</div>
+    </div>
+</main><!-- #primary -->
 
 <?php
 // Remove filters to prevent affecting other parts of the site

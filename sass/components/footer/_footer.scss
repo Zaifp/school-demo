@@ -1,50 +1,70 @@
+/* Basic footer styles */
 .site-footer {
-    background-color: #c9d59f; // Dark background for footer
-    color: #000000; // White text for readability
-    padding: 20px; // Padding around the footer content
-    text-align: center; // Center-align the text
-
-    .footer-contact,
-    .footer-menus {
-        margin-bottom: 20px; // Space between footer sections
-    }
-
-    .footer-navigation {
-        display: flex;
-        justify-content: center; // Center the navigation
-        a {
-            color: #fff; // White links
-            padding: 0 10px; // Spacing between links
-            text-decoration: none; // No underline
-
-            &:hover {
-                text-decoration: underline; // Underline on hover
-            }
-        }
-    }
-
-    .site-info {
-        font-size: 0.8em; // Smaller font size for site info
-    }
+    background-color: #000000; 
+    color: #fff; 
+    padding: 20px 0;
 }
 
-#scroll-top {
-    background-color: #444; // Darker background for the button
-    border: none;
-    border-radius: 50%; // Rounded button
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-
-    svg {
-        fill: #fff; // White icon
-    }
+/* Container for the footer content */
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 
-
-.footer-icon{
-    color: white;
+/* Footer menu styling */
+.footer-menu {
+    text-align: left;
 }
+
+.footer-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-menu nav ul li {
+    margin-bottom: 10px;
+}
+
+.footer-menu nav ul li a {
+    color: #fff; 
+    text-decoration: none; 
+}
+
+.footer-menu nav ul li a:hover {
+    color: red; 
+}
+
+/* Site info styling */
+.site-info {
+    text-align: center;
+}
+
+/* Footer contact styling */
+.footer-contact {
+    text-align: right;
+}
+
+.footer-icon {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-contact svg {
+    fill: #fff; 
+}
+
+/* Ensure footer is always at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-footer {
+    align-self: flex-end;
+    width: 100%;
+}
+

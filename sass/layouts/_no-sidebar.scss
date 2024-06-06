@@ -1,24 +1,4 @@
-.no-sidebar-layout {
-	display: grid;
-	grid-template-columns: 1fr minmax(auto, 1200px) 1fr;
-	grid-template-areas:
-	  "header header header"
-	  ". content ."
-	  "footer footer footer";
-  
-	.site-header {
-	  grid-area: header;
-	}
-  
-	.site-main {
-	  grid-area: content;
-	  max-width: 100%;
-	  margin: 0 auto;
-	}
-  
-	.site-footer {
-	  grid-area: footer;
-	}
+
   
 	.content-wrapper {
 	  display: flex;
@@ -45,16 +25,4 @@
 		background-color: #f9f9f9;
 	  }
 	}
-  }
-  
-  /* Additional styling for responsiveness */
-  @media (max-width: 1200px) {
-	.no-sidebar-layout {
-	  grid-template-columns: 1fr;
-	  grid-template-areas:
-		"header"
-		"content"
-		"footer";
-	}
-  }
-  
+ 

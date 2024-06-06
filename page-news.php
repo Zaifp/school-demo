@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="news-container">
     <section class="news-posts">
         <h1><?php the_title(); ?></h1>
         

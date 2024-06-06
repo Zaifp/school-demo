@@ -2,14 +2,14 @@
 /**
  * The template for displaying the home page
  *
- * This is the template that displays the front page by default.
+ * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
  * and that other 'pages' on your WordPress site may use a
  * different template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package schoolz
+ * @package FWD_Starter_Theme
  */
 
 get_header();
@@ -23,12 +23,14 @@ get_header();
     endwhile; // End of the loop.
     ?>
 
+    <h2><?php esc_html_e('Recent News', 'fwd'); ?></h2>
+
     <section class="home-blog">
-        <h2><?php esc_html_e('Recent News', 'schoolz'); ?></h2> 
+       
         <?php
         $args = array( 
             'post_type'      => 'post',
-            'posts_per_page' => 3 
+            'posts_per_page' => 4 
         );
         $blog_query = new WP_Query( $args );
         if ( $blog_query->have_posts() ) {
@@ -52,3 +54,4 @@ get_header();
 
 <?php
 get_footer();
+?>

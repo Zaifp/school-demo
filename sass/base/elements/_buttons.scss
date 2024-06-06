@@ -1,21 +1,44 @@
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__border-button;
-	border-radius: 3px;
-	background: $color__background-button;
-	color: rgba(0, 0, 0, 0.8);
-	line-height: 1;
-	padding: 0.6em 1em 0.4em;
+// button,
+// input[type="button"],
+// input[type="reset"],
+// input[type="submit"] {
+// 	border: 1px solid;
+// 	border-color: $color__border-button;
+// 	border-radius: 3px;
+// 	background: $color__background-button;
+// 	color: rgba(0, 0, 0, 0.8);
+// 	line-height: 1;
+// 	padding: 0.6em 1em 0.4em;
 
-	&:hover {
-		border-color: $color__border-button-hover;
-	}
+// 	&:hover {
+// 		border-color: $color__border-button-hover;
+// 	}
 
-	&:active,
-	&:focus {
-		border-color: $color__border-button-focus;
-	}
+// 	&:active,
+// 	&:focus {
+// 		border-color: $color__border-button-focus;
+// 	}
+// }
+
+
+#scroll-top {
+    background-color: transparent; /* Make the background invisible */
+    border: none;
+    border-radius: 50%; /* Rounded button */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 0; /* Ensure no extra space around the SVG */
+    display: flex; /* Center the SVG within the button */
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        fill: red; 
+        width: 100%; /* Ensure the SVG fills the button */
+        height: 100%;
+    }
 }
