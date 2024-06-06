@@ -76,7 +76,15 @@ if ( $query->have_posts() ) {
 		<h2><?php the_title(); ?></h2>
 		<?php the_post_thumbnail('large'); ?>
 	</a>
+	
 	<?php the_excerpt(); ?>
+	<div class="website">
+                    
+            <?php $website_url = get_field('https://www.youtube.com/'); ?>
+                <a href="<?php echo esc_url($website_url); ?>" target="_blank">Instructor's Website</a>
+            </div>
+
+	
 </article>
 <?php
 }
