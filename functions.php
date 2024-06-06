@@ -49,7 +49,7 @@ function schoolz_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'schoolz' ),
+			'header' => esc_html__( 'Primary', 'schoolz' ),
 		)
 	);
 
@@ -193,3 +193,27 @@ function schoolz_enqueue_scripts() {
 }
 
 add_action('wp_enqueue_script', 'schoolz_enqueue_scripts');
+
+wp_enqueue_style('theme-style', get_stylesheet_uri());
+
+
+function enqueue_aos_scripts() {
+    if (is_page('news') || is_singular('post')) {
+        // Enqueue AOS CSS
+        wp_enqueue_style('aos-css', get_template_directory_uri() . '/css/aos.css');
+        
+        // Enqueue AOS JS
+        wp_enqueue_script('aos-js', get_template_directory_uri() . '/js/aos.js', array(), null, true);
+        
+        // Initialize AOS
+        wp_add_inline_script('aos-js', 'AOS.init();');
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_aos_scripts');
+
+// Add support for wide and full width alignment in Gutenberg
+function mytheme_setup() {
+    add_theme_support( 'align-wide' );
+}
+add_action( 'after_setup_theme', 'mytheme_setup' );
+

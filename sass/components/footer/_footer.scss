@@ -1,6 +1,6 @@
 .site-footer {
-    background-color: #222; // Dark background for footer
-    color: #fff; // White text for readability
+    background-color: #c9d59f; // Dark background for footer
+    color: #000000; // White text for readability
     padding: 20px; // Padding around the footer content
     text-align: center; // Center-align the text
 
@@ -42,4 +42,9 @@
     svg {
         fill: #fff; // White icon
     }
+}
+
+
+.footer-icon{
+    color: white;
 }

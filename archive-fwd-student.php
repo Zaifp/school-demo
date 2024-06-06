@@ -1,99 +1,82 @@
 <?php
 /**
- * The template for displaying archive pages
+ * Template Name: Student List
+ * The template for displaying a list of students.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package FWD_Starter_Theme
+ * @package schoolz
  */
 
 get_header();
+
+// Modify the excerpt length and read more text for this template
+function custom_student_excerpt_length( $length ) {
+    return 25;
+}
+add_filter( 'excerpt_length', 'custom_student_excerpt_length', 999 );
+
+function custom_student_excerpt_more( $more ) {
+    global $post;
+    return '... <a class="read-more" href="' . get_permalink( $post->ID ) . '">' . __('Read More about the Student', 'your-text-domain') . '</a>';
+}
+add_filter( 'excerpt_more', 'custom_student_excerpt_more' );
+
 ?>
 
-	<main id="primary" class="site-main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
+<div class="no-sidebar-layout">
+    <main id="primary" class="site-main content-wrapper">
+	<?php
 				the_archive_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
-			</header><!-- .page-header -->
 
-			<?php
-			$args = array(
-			'post_type'      => 'fwd-student',
-    		'posts_per_page' => -1,
-			'tax_query'		 => array(
-				array(
-					'taxonomy' => 'fwd-student-category',
-					'field'    => 'slug',
-					'terms'    => 'web'				
-				)
-			)
-		);
-		$query = new WP_Query( $args );
-
-		if ( $query->have_posts() ) {
-			echo '<section><h2>' .esc_html__( 'Web' ) .'</h2>';
-    		while( $query->have_posts() ) {
-        		$query->the_post(); 
-        	?>
-        <article>
-            <a href="<?php the_permalink(); ?>">
-                <h2><?php the_title(); ?></h2>
-                <?php the_post_thumbnail('large'); ?>
-            </a>
-            <?php the_excerpt(); ?>
-        </article>
         <?php
-    }
-    wp_reset_postdata();
-	echo '</section>';
-} 
+        $args = array(
+            'post_type'      => 'fwd-student',
+            'posts_per_page' => -1,
+            'orderby'        => 'title',
+            'order'          => 'ASC',
+        );
 
-$args = array(
-	'post_type'      => 'fwd-student',
-	'posts_per_page' => -1,
-	'tax_query'		 => array(
-		array(
-			'taxonomy' => 'fwd-student-category',
-			'field'    => 'slug',
-			'terms'    => 'photo'				
-		)
-	)
-);
-$query = new WP_Query( $args );
+        $students_query = new WP_Query( $args );
 
-if ( $query->have_posts() ) {
-	echo '<section><h2>' .esc_html__( 'photo' ) .'</h2>';
-	while( $query->have_posts() ) {
-		$query->the_post(); 
-	?>
-<article>
-	<a href="<?php the_permalink(); ?>">
-		<h2><?php the_title(); ?></h2>
-		<?php the_post_thumbnail('large'); ?>
-	</a>
-	<?php the_excerpt(); ?>
-</article>
-<?php
-}
-wp_reset_postdata();
-echo '</section>';
-} 
-?>
-
-			<?php
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-	</main><!-- #primary -->
+        if ( $students_query->have_posts() ) :
+            while ( $students_query->have_posts() ) : $students_query->the_post();
+                $terms = get_the_terms( get_the_ID(), 'fwd-student-category' );
+        ?>
+                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="student-thumbnail">
+                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'large' ); ?></a>
+                        </div>
+                    <?php endif; ?>
+                    <div class="student-excerpt">
+                        <?php the_excerpt(); ?>
+                    </div>
+                    <div class="student-terms">
+                        <?php if ( $terms && ! is_wp_error( $terms ) ) : ?>
+                            <ul class="student-terms-list">
+                                <?php foreach ( $terms as $term ) : ?>
+                                    <li><a href="<?php echo esc_url( get_term_link( $term ) ); ?>"><?php echo esc_html( $term->name ); ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </div>
+                </article>
+        <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            echo '<p>' . __( 'No students found.', 'your-text-domain' ) . '</p>';
+        endif;
+        ?>
+    </main><!-- #primary -->
+</div>
 
 <?php
+// Remove filters to prevent affecting other parts of the site
+remove_filter( 'excerpt_length', 'custom_student_excerpt_length', 999 );
+remove_filter( 'excerpt_more', 'custom_student_excerpt_more' );
+
 get_footer();
+?>
