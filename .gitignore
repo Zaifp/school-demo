@@ -97,3 +97,13 @@ package-lock.json
 
 style.css.map
 style.css
+front-page.php
+functions.php
+news.php
+sass/_animations.scss
+sass/_core.scss
+sass/_easing.scss
+sass/aos.scss
+sass/style.scss
+sass/layouts/_no-sidebar.scss
+template-parts/page-news.php

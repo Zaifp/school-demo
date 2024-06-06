@@ -46,6 +46,28 @@
 	  }
 	}
   }
+
+  /* Wide width block */
+.wp-block {
+    &.alignwide {
+        max-width: 1080px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Full width block */
+.wp-block {
+    &.alignfull {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+}
+
   
   /* Additional styling for responsiveness */
   @media (max-width: 1200px) {
