@@ -1,8 +1,45 @@
-.widget {
-	margin: 0 0 1.5em;
+#secondary {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-	// Make sure select elements fit in widgets.
-	select {
-		max-width: 100%;
-	}
+.widget {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.widget-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.widget_recent_entries ul,
+.widget_categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Align text to the left */
+}
+
+.widget_recent_entries ul li,
+.widget_categories ul li {
+    margin-bottom: 10px;
+}
+
+.widget_recent_entries ul li a,
+.widget_categories ul li a {
+    color: #000; /* Adjust link color as needed */
+    text-decoration: none;
+}
+
+.widget_recent_entries ul li a:hover,
+.widget_categories ul li a:hover {
+    color: red; /* Adjust hover color as needed */
+}
+
+.widget_calendar table {
+    margin: 0 auto;
 }
